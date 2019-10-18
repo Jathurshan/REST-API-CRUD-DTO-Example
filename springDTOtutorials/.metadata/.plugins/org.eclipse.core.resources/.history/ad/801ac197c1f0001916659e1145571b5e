@@ -1,0 +1,32 @@
+package com.app.project.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.project.dto.ProjectCreateDTO;
+import com.app.project.dto.ProjectQueryDTO;
+import com.app.project.service.ProjectCommandService;
+
+@RestController
+@RequestMapping("/api/project")
+public class ProjectCommandController {
+
+	@Autowired
+	private ProjectCommandService projectCommandService;
+
+	@PostMapping
+	public ResponseEntity<Integer> createProject(@RequestBody ProjectCreateDTO projectCreateDTO) {
+		return new ResponseEntity<>(projectCommandService.createProject(projectCreateDTO), HttpStatus.OK);
+	}
+
+	public ResponseEntity<ProjectQueryDTO> updateProject(@PathVariable("id") Integer id,
+			@RequestBody ProjectCreateDTO projectUpdateDTO) {
+		return new ResponseEntity<>(projectCommandService.updateProject(id, projectUpdateDTO),HttpStatus.OK);
+	}
+}

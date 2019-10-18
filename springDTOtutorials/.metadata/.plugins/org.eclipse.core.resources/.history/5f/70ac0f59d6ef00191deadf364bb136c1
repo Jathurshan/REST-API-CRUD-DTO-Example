@@ -1,0 +1,30 @@
+package com.app.updated.serviceImpl;
+
+import java.util.UUID;
+//
+//import javax.transaction.Status;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.updated.repository.VehicleRepository;
+import com.app.updated.service.VehicleCommandService;
+import com.app.updated.vehicle.Vehicle;
+import com.app.updated.vehicledto.VehicleCreateDTO;
+
+@Service
+public class VehicleCommandServiceImpl implements VehicleCommandService {
+
+	@Autowired
+	private VehicleRepository vehicleRepository;
+
+	public UUID createVehicle(VehicleCreateDTO vechicledto) {
+		Vehicle vehicle = new Vehicle();
+		vehicle.setId(UUID.randomUUID());
+		vehicle.setMake(vechicledto.getMake());
+		vehicle.setModel(vechicledto.getModel());
+		vehicle.setStatus(String.valueOf(Status.FOR_SALE));
+
+		return vehicleRepository.save(vehicle).getId();
+	}
+}

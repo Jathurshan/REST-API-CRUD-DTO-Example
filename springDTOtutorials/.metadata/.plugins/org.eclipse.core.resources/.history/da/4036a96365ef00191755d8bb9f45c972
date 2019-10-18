@@ -1,0 +1,28 @@
+package com.app.updated.vehicle;
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vehicle")
+public class Vehicle {
+	
+	@Id
+	private UUID id;
+
+    private String vehicleIdentityNumber;
+
+    private String make;
+
+    private String model;
+
+    private String status;
+    
+    public Vehicle() {
+    	
+    }
+
+}

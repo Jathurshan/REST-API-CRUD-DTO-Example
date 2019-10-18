@@ -1,0 +1,11 @@
+package com.app.project.service;
+
+import com.app.project.dto.ProjectQueryDTO;
+
+public interface ProjectService {
+	
+	public ProjectQueryDTO createProject(Integer id);
+	
+	public List<ProjectQueryDTO> getAllProjects();
+	
+}

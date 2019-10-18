@@ -1,0 +1,21 @@
+package com.app.project.controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.project.dto.ProjectQueryDTO;
+import com.app.project.service.ProjectQueryService;
+
+@RestController
+@RequestMapping("/api/project")
+public class ProjectQueryController {
+	
+	public ResponseEntity<List<ProjectQueryDTO>> getAllProjects(){
+		return new ResponseEntity<>(ProjectQueryService.getAllProject());
+	}
+	
+
+}

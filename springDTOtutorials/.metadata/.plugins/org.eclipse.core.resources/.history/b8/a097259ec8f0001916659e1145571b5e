@@ -1,0 +1,9 @@
+package com.app.project.dto;
+
+public class ProjectUpdateDTO {
+	private String name;
+	private String description;
+	private String agentName;
+	
+	
+}

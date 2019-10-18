@@ -1,0 +1,27 @@
+package com.app.updated.serviceImpl;
+
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.updated.querydto.VehicleQueryDTO;
+import com.app.updated.repository.VehicleRepository;
+import com.app.updated.vehicle.Vehicle;
+
+@Service
+public class VehicleQueryServiceImplementation {
+	@Autowired
+	private VehicleRepository vehicleRepository;
+
+	@Override
+	public VehicleQueryDTO getVehicle(UUID id) {
+		if (vehicleRepository.findById(id).isPresent()) {
+			Vehicle fetchedVehicle = vehicleRepository.findById(id).get();
+			return new VehicleQueryDTO(fetchedVehicle.getId(), fetchedVehicle.getVehicleIdentityNumber(),
+					fetchedVehicle.getMake(), fetchedVehicle.getModel());
+		} else {
+			return null;
+		}
+	}
+}

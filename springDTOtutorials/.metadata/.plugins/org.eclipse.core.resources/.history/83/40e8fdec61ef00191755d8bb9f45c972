@@ -1,0 +1,5 @@
+package com.app.updated.vehicle;
+
+public class VehicleUpdateDTO {
+
+}

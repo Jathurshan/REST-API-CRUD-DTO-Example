@@ -1,0 +1,14 @@
+package com.app.updated.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.updated.repository.VehicleRepository;
+import com.app.updated.service.VehicleCommandService;
+
+@Service
+public class VehicleCommandServiceImpl implements VehicleCommandService {
+	
+	@Autowired
+	private VehicleRepository vehicleRepository;
+}

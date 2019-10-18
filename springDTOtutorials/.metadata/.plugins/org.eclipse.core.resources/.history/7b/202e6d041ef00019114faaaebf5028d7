@@ -1,0 +1,5 @@
+package com.app.project.repository;
+
+public class ProjectRepository {
+
+}

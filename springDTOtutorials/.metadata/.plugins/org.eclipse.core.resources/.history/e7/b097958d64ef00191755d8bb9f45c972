@@ -1,0 +1,15 @@
+package com.app.updated.querydto;
+
+import java.util.UUID;
+
+public class VehicleQueryDTO {
+	private UUID id;
+	private String vehicleIdentityNumber;
+	private String make;
+	private String model;
+	
+	public VehicleQueryDTO(UUID id, String vehicleIdentityNumber, String make, String model) {
+		
+	}
+
+}

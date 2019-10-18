@@ -1,0 +1,41 @@
+package com.app.updated.controller;
+
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.updated.querydto.VehicleQueryDTO;
+import com.app.updated.service.VehicleCommandService;
+import com.app.updated.vehicledto.VehicleCreateDTO;
+import com.app.updated.vehicledto.VehicleUpdateDTO;
+
+@RestController
+@RequestMapping(value = "/api/vehicles")
+public class VehicleCommandController {
+
+    @Autowired
+    private VehicleCommandService vehicleCommandService;
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<UUID> createVehicle(@RequestBody VehicleCreateDTO vehicleCreateDTO){
+        return new ResponseEntity<>(vehicleCommandService.creatVehicle(vehicleCreateDTO), HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<VehicleQueryDTO> updateVehicle(@PathVariable(value = "id") UUID id,
+                                                         @RequestBody VehicleUpdateDTO vehicleUpdateDTO){
+        return new ResponseEntity<>(vehicleCommandService.updateVehicle(id, vehicleUpdateDTO), HttpStatus.OK);
+    }
+}

@@ -1,0 +1,5 @@
+package com.app.project.serviceImpl;
+
+public class ProjectQueryServiceImpl {
+
+}

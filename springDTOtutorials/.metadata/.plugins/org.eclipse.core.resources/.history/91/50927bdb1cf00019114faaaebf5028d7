@@ -1,0 +1,49 @@
+package com.app.project.dto;
+
+public class ProjectQueryDTO {
+
+	private int id;
+	private String name;
+	private String description;
+	private String agentName;
+
+	public ProjectQueryDTO(int id, String name, String description, String agentName) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.agentName = agentName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
+	}
+
+}

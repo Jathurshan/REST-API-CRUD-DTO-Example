@@ -1,0 +1,5 @@
+package com.app.updated.querydto;
+
+public class VehicleQueryDTO {
+
+}

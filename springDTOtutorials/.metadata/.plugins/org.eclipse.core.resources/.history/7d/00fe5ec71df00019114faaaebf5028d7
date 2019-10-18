@@ -1,0 +1,9 @@
+package com.app.project.dto;
+
+public class ProjectCreateDTO {
+	
+	private String name;
+	private String description;
+	private String agentName;
+
+}

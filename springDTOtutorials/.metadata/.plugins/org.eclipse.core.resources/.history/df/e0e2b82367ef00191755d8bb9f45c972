@@ -1,0 +1,5 @@
+package com.app.updated.serviceImpl;
+
+public class VehicleQueryServiceImplementation {
+
+}

@@ -1,0 +1,11 @@
+package com.app.updated.service;
+
+import java.util.UUID;
+
+import com.app.updated.vehicle.VehicleCreateDTO;
+import com.app.updated.vehicle.VehicleUpdateDTO;
+
+public interface VehicleCommandService {
+	public UUID craeatVehicle(VehicleCreateDTO vehicleCreateDTO);
+	public VehicleQueryDTO updateVehicle(UUID id, VehicleUpdateDTO vehicleUpdateDTO);
+}

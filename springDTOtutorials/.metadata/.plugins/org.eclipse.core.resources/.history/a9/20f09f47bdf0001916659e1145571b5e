@@ -1,0 +1,25 @@
+package com.app.project.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.project.dto.ProjectCreateDTO;
+import com.app.project.entity.Project;
+import com.app.project.repository.ProjectRepository;
+import com.app.project.service.ProjectCommandService;
+
+@Service
+public class ProjectCommandServiceImpl implements ProjectCommandService {
+
+	@Autowired
+	private ProjectRepository projectRepository;
+	
+	public Integer createProject(ProjectCreateDTO projectCreateDTO) {
+		Project newProject = new Project();
+		newProject.setName(projectCreateDTO.getName());
+		newProject.setDescription(projectCreateDTO.getDescription());
+		newProject.setAgentName(projectCreateDTO.getAgentName());
+		return newProject;
+	}
+	
+}

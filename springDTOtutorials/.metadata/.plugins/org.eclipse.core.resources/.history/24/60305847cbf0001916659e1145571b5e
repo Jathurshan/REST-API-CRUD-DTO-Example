@@ -1,0 +1,46 @@
+package com.app.project.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.project.dto.ProjectCreateDTO;
+import com.app.project.dto.ProjectQueryDTO;
+import com.app.project.dto.ProjectUpdateDTO;
+import com.app.project.entity.Project;
+import com.app.project.repository.ProjectRepository;
+import com.app.project.service.ProjectCommandService;
+
+@Service
+public class ProjectCommandServiceImpl implements ProjectCommandService {
+
+	@Autowired
+	private ProjectRepository projectRepository;
+
+	@Override
+	public Integer createProject(ProjectCreateDTO projectCreateDTO) {
+		Project newProject = new Project();
+		newProject.setName(projectCreateDTO.getName());
+		newProject.setDescription(projectCreateDTO.getDescription());
+		newProject.setAgentName(projectCreateDTO.getAgentName());
+
+		return projectRepository.save(newProject).getId();
+	}
+
+	@Override
+	public ProjectQueryDTO updateProject(Integer id, ProjectUpdateDTO projectUpdateDTO) {
+		if (projectRepository.findById(id).isPresent()) {
+			Project existingProject = projectRepository.findById(id).get();
+
+			existingProject.setName(projectUpdateDTO.getName());
+			existingProject.setDescription(projectUpdateDTO.getDescription());
+			existingProject.setAgentName(projectUpdateDTO.getAgentName());
+
+			Project updatedProject = projectRepository.save(existingProject);
+
+			return new ProjectQueryDTO(updatedProject.getId(), updatedProject.getName(),
+					updatedProject.getDescription(), updatedProject.getAgentName());
+		} else {
+			return null;
+		}
+	}
+}

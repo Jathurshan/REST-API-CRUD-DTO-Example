@@ -1,0 +1,23 @@
+package com.app.project.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.project.dto.ProjectQueryDTO;
+import com.app.project.entity.Project;
+import com.app.project.repository.ProjectRepository;
+
+@Service
+public class ProjectQueryServiceImpl {
+	
+	@Autowired
+	private ProjectRepository projectRepo;
+	
+	@Override
+	public ProjectQueryDTO createProject(Integer id) {
+		if(projectRepo.findById(id).isPresent()) {
+			Project fetchProject = projectRepo.findById(id).get();
+			return new ProjectQueryDTO(fetchProject.getId(),fetchProject.getName(),fetchProject.getDescription(),fetchProject.getAgentName());
+		}
+	}
+}

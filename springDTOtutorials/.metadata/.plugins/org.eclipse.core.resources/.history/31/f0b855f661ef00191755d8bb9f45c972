@@ -1,0 +1,7 @@
+package com.app.updated.vehicle;
+
+public class VehicleUpdateDTO {
+	private String make;
+	private String model;
+
+}

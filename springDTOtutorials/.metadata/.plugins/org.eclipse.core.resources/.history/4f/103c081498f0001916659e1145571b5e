@@ -1,0 +1,12 @@
+package com.app.project.service;
+
+import org.springframework.stereotype.Service;
+
+import com.app.project.dto.ProjectQueryDTO;
+
+@Service
+public class ProjectService {
+	
+	public ProjectQueryDTO createProject(Integer id);
+	
+}
